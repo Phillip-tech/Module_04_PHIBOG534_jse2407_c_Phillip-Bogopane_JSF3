@@ -3,7 +3,7 @@
       <router-link :to="{ name: 'ProductView', params: { id: product.id }}">
         <img :src="product.image" :alt="product.title" class="h-48 w-full object-contain mb-4" />
       </router-link>
-      <div class="flex justify-between items-start mb-2">
+      <div class="flex justify-between items-start mb-2 p-4">
         <div class="text-lg font-semibold">{{ product.title }}</div>
         <button @click="$emit('toggleFavorite', product.id)" class="text-gray-500 hover:text-red-500">
           <svg v-if="isFavorite" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-6 w-6">
