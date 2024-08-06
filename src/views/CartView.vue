@@ -8,7 +8,7 @@
           class="flex justify-between items-center border-b pb-4"
         >
           <div class="flex items-center">
-            <img :src="item.image" :alt="item.title" class="h-16 w-16 object-cover rounded-md" />
+            <img :src="item.image" :alt="item.title" class="h-16 w-16 object-contain rounded-md" />
             <div class="ml-4">
               <div class="font-semibold">{{ item.title }}</div>
               <div class="text-gray-600">${{ item.price }}</div>
