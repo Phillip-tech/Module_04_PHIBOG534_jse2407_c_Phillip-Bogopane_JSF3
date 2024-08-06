@@ -1,7 +1,7 @@
 <template>
     <div class="border rounded-lg p-4 shadow-md hover:shadow-lg">
       <router-link :to="{ name: 'ProductView', params: { id: product.id }}">
-        <img :src="product.image" :alt="product.title" class="h-40 w-full object-cover mb-4" />
+        <img :src="product.image" :alt="product.title" class="h-48 w-full object-contain mb-4" />
       </router-link>
       <div class="flex justify-between items-start mb-2">
         <div class="text-lg font-semibold">{{ product.title }}</div>

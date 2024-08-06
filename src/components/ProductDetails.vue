@@ -1,6 +1,6 @@
 <template>
   <div v-if="product" class="flex flex-col md:flex-row mt-6">
-    <img :src="product.image" :alt="product.title" class="w-full md:w-1/2 object-cover rounded-md" />
+    <img :src="product.image" :alt="product.title" class="h-48 w-full md:w-1/2 object-contain rounded-md" />
     <div class="md:ml-6 mt-4 md:mt-0">
       <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
       <p class="text-gray-600 mb-4">{{ product.category }}</p>
