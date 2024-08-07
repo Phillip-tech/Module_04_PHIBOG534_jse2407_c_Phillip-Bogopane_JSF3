@@ -1,11 +1,15 @@
 <template>
+  <!-- Header Section with Sticky Navigation Bar -->
   <header class="sticky z-50 top-0">
+    <!-- Navigation Bar -->
     <nav class="bg-gray-500 border-gray-200">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <!-- Logo and Title -->
         <a href="#" class="flex items-center space-x-3">
           <img src="@/assets/online-shop.png" class="h-8" alt="SwiftCart Logo" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">SwiftCart</span>
         </a>
+        <!-- Mobile Menu Toggle Button -->
         <button
           @click="navbarOpen = !navbarOpen"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden"
@@ -26,13 +30,16 @@
             />
           </svg>
         </button>
+        <!-- Navigation Links -->
         <div :class="navbarOpen ? 'block' : 'hidden'" class="w-full md:block md:w-auto">
           <ul
             class="flex flex-col top-10 font-medium p-4 mt-4 border border-gray-100 rounded-lg bg-gray-500 md:space-x-8 md:flex-row md:mt-0"
           >
+            <!-- Wishlist Link -->
             <li>
               <a href="#" class="block py-2 px-3 text-white rounded hover:bg-gray-100">Wishlist</a>
             </li>
+            <!-- Cart Icon with Notification Badge -->
             <li class="hidden lg:block md:block relative">
               <div class="absolute left-3 -top-4">
                 <p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">2</p>
@@ -43,7 +50,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="h-6 w-6 text-white cursor-pointer" 
+                class="h-6 w-6 text-white cursor-pointer"
               >
                 <path
                   strokeLinecap="round"
@@ -52,6 +59,7 @@
                 />
               </svg>
             </li>
+            <!-- Login Link -->
             <li>
               <a href="#" class="block py-2 px-3 text-white rounded hover:bg-gray-100">Login</a>
             </li>
@@ -65,5 +73,9 @@
 <script setup>
 import { ref } from 'vue';
 
+/**
+ * Indicates whether the navigation bar is open or closed on smaller screens.
+ * @type {boolean}
+ */
 const navbarOpen = ref(false);
 </script>
