@@ -1,6 +1,6 @@
 <template>
   <div v-if="product" class="flex flex-col md:flex-row mt-6">
-    <img :src="product.image" :alt="product.title" class="h-48 w-full md:w-1/2 object-contain rounded-md" />
+    <img :src="product.image" :alt="product.title" class="h-30 w-full md:w-30 object-contain rounded-md" />
     <div class="md:ml-6 mt-4 md:mt-0">
       <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
       <p class="text-gray-600 mb-4">{{ product.category }}</p>
@@ -50,6 +50,8 @@ export default {
     const hasHalfStar = computed(() => stars.value % 1 >= 0.5);
     const emptyStars = computed(() => 5 - fullStars.value - (hasHalfStar.value ? 1 : 0));
 
+    const loading = ref(false); // Add loading state
+
     const toggleFavorite = (productId) => {
       store.commit('toggleFavorite', productId);
     };
@@ -69,16 +71,19 @@ export default {
 
       // Fetch additional data from API
       try {
+        loading.value = true; // Set loading to true before API call
         const response = await axios.get(`https://fakestoreapi.com/products/${productId}`);
         stars.value = response.data.rating.rate;
         numRatings.value = response.data.rating.count;
         numReviews.value = response.data.rating.count; // Assuming numReviews is the same as numRatings
       } catch (error) {
         console.error('Error fetching additional data:', error);
+      } finally {
+        loading.value = false; // Set loading to false after API call
       }
     });
 
-    return { product, isFavorite, toggleFavorite, addToCart, stars, numRatings, numReviews, goBack, fullStars, hasHalfStar, emptyStars };
+    return { product, isFavorite, toggleFavorite, addToCart, stars, numRatings, numReviews, goBack, fullStars, hasHalfStar, emptyStars, loading };
   }
 };
 </script>
