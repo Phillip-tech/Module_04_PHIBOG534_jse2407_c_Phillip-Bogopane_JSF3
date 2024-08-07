@@ -2,7 +2,7 @@
   <!-- Product Details View -->
   <div v-if="product" class="flex flex-col md:flex-row mt-6">
     <!-- Product Image -->
-    <img :src="product.image" :alt="product.title" class="h-30 w-full md:w-30 object-contain rounded-md" />
+    <img :src="product.image" :alt="product.title" class="h-80 w-full md:w-30 object-contain rounded-md" />
     <div class="md:ml-6 mt-4 md:mt-0">
       <!-- Product Title -->
       <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
